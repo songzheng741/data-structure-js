@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../vendor/require.js"></script>
+    <style>
+        #main {
+            width: 800px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .form-control {
+            width: 800px;
+            margin: 0 auto;
+            position: relative;
+            zoom: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="form-control">
+        <label for="number">请输入要查找的数字</label>
+        <input type="text" id="number"/>
+        <a id="search" href="#">查找</a>
+    </div>
+    <div id="main"></div>
+
+<script>
+    require(['binary_search'], function(binary_search) {
+        var search = document.getElementById('search');
+        var number = document.getElementById('number');
+        search.onclick = function() {
+            var idx = binary_search(number.value);
+            alert(idx);
+        }
+    });
+</script>
+</body>
+</html>
